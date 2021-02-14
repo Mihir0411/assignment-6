@@ -72,7 +72,12 @@ const createSlider = () => {
   imagesArea.style.display = 'none';
 
 
-  const duration = document.getElementById('duration').value || 10000;
+  var duration = document.getElementById('duration').value;
+  if(duration < 0){
+    var duration = duration * -1;
+  }else{
+    var duration = duration || 1000;
+  }
 
   sliders.forEach(slide => {
     let item = document.createElement('div')
